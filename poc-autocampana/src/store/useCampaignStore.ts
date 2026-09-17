@@ -48,7 +48,7 @@ let toastId = 1
 
 function initialTheme(): Theme {
   try {
-    return (localStorage.getItem('tw-theme') as Theme) || 'dark'
+    return (localStorage.getItem('tw-theme') as Theme) || 'light'
   } catch {
     return 'dark'
   }
