@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html, body {
+  background: #F1F5F9;
+  color: #0F172A;
+  font-family: Inter, system-ui, 'Segoe UI', Roboto, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.dark body, body:has(.dark) {
+  background: #060A14;
+}
+
+.dark, .dark body {
+  background: #060A14;
+  color: #F1F5F9;
+}
+
+#root {
+  min-height: 100svh;
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: #060A14; }
+::-webkit-scrollbar-thumb { background: #1B2742; border-radius: 8px; border: 2px solid #060A14; }
+::-webkit-scrollbar-thumb:hover { background: #2E7CF6; }
+
+.tabular { font-variant-numeric: tabular-nums; }
+
+.recharts-tooltip-wrapper { outline: none !important; }
+.recharts-cartesian-axis-tick text { fill: #64748B; font-size: 11px; }
+.recharts-cartesian-grid line { stroke: rgba(255,255,255,0.06); }
+
+.leaflet-container {
+  font-family: Inter, system-ui, sans-serif;
+  z-index: 0;
+}
+.leaflet-container img {
+  max-width: none !important;
+}
+.leaflet-pane { z-index: 400; }
+.leaflet-top, .leaflet-bottom { z-index: 500; }
+.leaflet-control-zoom a {
+  background: #0C1322 !important;
+  color: #F1F5F9 !important;
+  border-color: rgba(255,255,255,0.1) !important;
+}
+
+@keyframes shimmer-slide {
+  0% { transform: translateX(-110%); }
+  100% { transform: translateX(220%); }
+}
+.animate-shimmer {
+  animation: shimmer-slide 2.8s ease-in-out infinite;
+}
+
+@keyframes drift-a {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(50px, -35px) scale(1.15); }
+}
+@keyframes drift-b {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  50% { transform: translate(-55px, 30px) scale(0.9); }
+}
+.animate-drift-a { animation: drift-a 12s ease-in-out infinite; }
+.animate-drift-b { animation: drift-b 16s ease-in-out infinite; }
+
+@media print {
+  body { background: #fff !important; color: #000 !important; }
+  .no-print { display: none !important; }
+  .print-white { background: #fff !important; color: #000 !important; border-color: #ddd !important; }
+}
